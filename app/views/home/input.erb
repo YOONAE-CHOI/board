@@ -1,0 +1,18 @@
+<h1> 유내짱의 게시판이에오 </h1>
+<form action="/home/output" method="POST">
+    제목 : <input type="text" name="title" placeholder="제목을 입력하세요"><br>
+    글 내용 : <input type="text" name="article" placeholder="내용을 입력하세요"><br>
+    작성자 : <input type="text" name="writer"><br>
+    비밀번호 : <input type="password" name="pwd">
+    <input type="submit" value="전송">
+</form>
+
+<hr>
+
+<% @contents.each do |c| %>
+    <%= c.article %>, <%= c.writer %> 
+    <a href="/home/delete/<%= c.id%>">[삭제]</a> 
+    <a href="/home/edit/<%= c.id%>">[수정]</a>
+    <a href="/home/show/<%= c.id %>">[상세]</a> <br>
+<% end%>
+

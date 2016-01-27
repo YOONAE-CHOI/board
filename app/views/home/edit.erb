@@ -1,0 +1,8 @@
+<h1> 글 수정 </h1>
+<form action="/home/update/<%= @two.id %>" method="POST">
+    글 제목 : <input type="text" name="title" value=<%= @two.title %>><br>
+    글 내용 : <input type="text" name="article" value=<%= @two.article %>><br>
+    작성자 : <input type="text" name="writer" value=<%= @two.writer %> ><br>
+    비밀번호 : <input type="password" name="pwd" value=<%= @two.pwd %> >
+    <input type="submit" value="수정">
+</form>

@@ -48,6 +48,7 @@ class HomeController < ApplicationController
         coke.ripple = params[:ripple]
         coke.pwd = params[:pwd]
         coke.save
+        
         redirect_to "/home/show/#{coke.post_id}"
     end
 end

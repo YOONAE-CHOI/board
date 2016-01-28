@@ -4,6 +4,9 @@ class HomeController < ApplicationController
     def input
         @contents = Post.all
         
+        
+        @username = User.find(session[:user_id]).userid unless session[:user_id].nil?
+        
     end
     
     def output
@@ -51,4 +54,26 @@ class HomeController < ApplicationController
         
         redirect_to "/home/show/#{coke.post_id}"
     end
+    
+    def jogin
+        render layout:false
+        if params[:join] 
+            user = User.new
+            user.userid = params[:userid]
+            user.userpwd = params[:userpwd]
+            user.save
+            
+        else
+            who = User.where(userid: params[:userid], userpwd: params[:userpwd]).take
+            return session[:user_id] = who.id unless who.nil?
+        end
+        
+    end
+    
+    def logout
+        reset_session
+        redirect_to '/'
+    end
+        
+    
 end

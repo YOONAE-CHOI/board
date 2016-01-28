@@ -3,7 +3,9 @@
 
     글 제목 : <%= @detail.title %> <br>
     글 내용 : <%= @detail.article %> <br>
-    작성자 : <%= @detail.writer %> <br>
+    작성자 : <%= @detail.writer %> <br><br><br>
+    <a href="/home/delete/<%= @detail.id%>">[삭제]</a> 
+    <a href="/home/edit/<%= @detail.id%>">[수정]</a>
 
 <hr>
 

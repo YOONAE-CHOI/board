@@ -1,4 +1,20 @@
 <h1> 유내짱&우리의 게시판이에오 </h1>
+
+<% if session[:user_id].nil? %>
+<form action="/home/jogin" method="GET">
+    아이디 : <input type="text" name="userid">, 
+    비밀번호 : <input type="text" name="userpwd"><br>
+    <button type="submit" name="login" value="login">로그인</button>
+    <button type="submit" name="join" value="login">가입</button>
+</form>
+<% else %>
+<%= @username%>님 안녕하세요
+<br>
+<a href="/home/logout/">로그아웃</a>
+<% end %>
+
+<hr>
+
 <form action="/home/output" method="POST">
     제목 : <input type="text" name="title" placeholder="제목을 입력하세요"><br>
     글 내용 : <input type="text" name="article" placeholder="내용을 입력하세요"><br>
@@ -10,9 +26,8 @@
 <hr>
 
 <% @contents.each do |c| %>
-    <%= c.article %>, <%= c.writer %> 
-    <a href="/home/delete/<%= c.id%>">[삭제]</a> 
-    <a href="/home/edit/<%= c.id%>">[수정]</a>
-    <a href="/home/show/<%= c.id %>">[상세]</a> <br>
+    작성자 : <%= c.writer %> / 글 제목 : <a href="/home/show/<%= c.id %>"><%= c.article %></a> <br>
+    
+   
 <% end%>
 

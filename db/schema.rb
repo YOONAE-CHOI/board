@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160127122559) do
+ActiveRecord::Schema.define(version: 20160128074734) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(version: 20160127122559) do
     t.string   "rippler"
     t.string   "ripple"
     t.string   "pwd"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "userid"
+    t.string   "userpwd"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
